@@ -23,17 +23,17 @@ public class PassengerService {
 		return s;
 		
 	}
-	public List<Bookings> getBookings() {
+	public List<Bookings> getBookings(String email) {
 		// TODO Auto-generated method stub
 		PassengerDao pd=new PassengerDao();
-		List<Bookings> listB=pd.getBookings();
+		List<Bookings> listB=pd.getBookings(email);
 		return listB;
 	}
 	
-	public List<Passenger> getDetails() {
+	public List<Passenger> getDetails(String email) {
 		
 		PassengerDao pd=new PassengerDao();
-		List<Passenger> list=pd.getDetails();
+		List<Passenger> list=pd.getDetails(email);
 		return list;
 	
 }

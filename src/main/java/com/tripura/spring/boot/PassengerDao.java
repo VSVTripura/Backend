@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 public class PassengerDao {
@@ -111,7 +113,7 @@ public class PassengerDao {
 	}
 
 	
-	public List<Bookings> getBookings() {
+	public List<Bookings> getBookings(String email) {
 List<Bookings>  bookinglist=new ArrayList<Bookings>();
 	
 	
@@ -126,7 +128,7 @@ List<Bookings>  bookinglist=new ArrayList<Bookings>();
 		System.out.println("Database connected");
 		
 		Statement stmt=(Statement) con.createStatement();
-		ResultSet rs=stmt.executeQuery("select * from bookings");
+		ResultSet rs=stmt.executeQuery("select * from bookings where email='"+email+"'");
 		
 	
 		
@@ -166,7 +168,7 @@ List<Bookings>  bookinglist=new ArrayList<Bookings>();
 }
 	
 	
-	public List<Passenger> getDetails() {
+	public List<Passenger> getDetails(String email) {
 		
 		List<Passenger>  detailslist=new ArrayList<Passenger>();
 			
@@ -181,7 +183,7 @@ List<Bookings>  bookinglist=new ArrayList<Bookings>();
 				
 				System.out.println("Database connected");
 				
-				String email="satyav@gmail.com";
+			//	String email="satyav@gmail.com";
 				Statement stmt=(Statement) con.createStatement();
 				ResultSet rs=stmt.executeQuery("select * from passenger where email='"+email+"'");
 				
